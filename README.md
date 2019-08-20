@@ -16,7 +16,7 @@ JVM的重要性毋庸置疑，可以毫不夸张的说Java虚拟机是整个Java
 8. 头脑风暴（即JVM必备题）。
 
 专栏将会围绕如下脑图进行展开（**此脑图会持续进行完善**）：
-![JVM .png](https://i.loli.net/2019/08/17/D9nV1yisU8Kel4H.png)
+![JVM _2_.png](https://i.loli.net/2019/08/19/Vdh6brKZaNRDtkx.png)
 
 >此脑图会持续维护并进行完善，高清无码大图可扫描下方二维码，在微信公众号（猿人谷）输入关键字“jvm”即可。
 
