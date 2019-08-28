@@ -104,12 +104,13 @@ G1与CMS的特征对比如下：
 
 G1收集器将整个Java堆划分为多个大小相等的独立区域（Region），虽然还保留有新生代和老年代的概念，但新生代和老年代不再是物理隔离的了，它们都是一部分Region（不需要连续）的集合。**G1收集器之所以能建立可预测的停顿时间模型，是因为它可以有计划地避免在整个Java堆中进行全区域的垃圾收集**。G1会通过一个合理的计算模型，计算出每个Region的收集成本并量化，这样一来，收集器在给定了“停顿”时间限制的情况下，总是能选择一组恰当的Regions作为收集目标，让其收集开销满足这个限制条件，以此达到实时收集的目的。
 
-对于打算从CMS或者ParallelOld收集器迁移过来的应用，按照官方的建议，如果发现符合如下特征，可以考虑更换成G1收集器以追求更佳性能：
+对于打算从CMS或者ParallelOld收集器迁移过来的应用，按照[官方](https://www.oracle.com/technetwork/java/javase/tech/g1-intro-jsp-135488.html) 的建议，如果发现符合如下特征，可以考虑更换成G1收集器以追求更佳性能：
 - 实时数据占用了超过半数的堆空间；
 - 对象分配率或“晋升”的速度变化明显；
 - 期望消除耗时较长的GC或停顿（超过0.5——1秒）。
 
->Applications running today with either the CMS or the ParallelOld garbage collector would benefit switching to G1 if the application has one or more of the following traits.
+>原文如下：
+Applications running today with either the CMS or the ParallelOld garbage collector would benefit switching to G1 if the application has one or more of the following traits.
 > - More than 50% of the Java heap is occupied with live data.
 > - The rate of object allocation rate or promotion varies significantly.
 > - Undesired long garbage collection or compaction pauses (longer than 0.5 to 1 second)
