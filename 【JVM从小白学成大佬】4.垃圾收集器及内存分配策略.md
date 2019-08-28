@@ -122,6 +122,10 @@ Applications running today with either the CMS or the ParallelOld garbage collec
 - **最终标记（Final Marking）**：是为了修正并发标记期间因用户程序继续运作而导致标记产生变动的那一部分标记记录，虚拟机将这段时间对象变化记录在线程Remembered Set Logs里面，最终标记阶段需要把Remembered Set Logs的数据合并到Remembered Set中，**这阶段需要停顿线程，但是可并行执行**。
 - **筛选回收（Live Data Counting and Evacuation）**：首先对各个Region的回收价值和成本进行排序，根据用户所期望的GC停顿时间来制定回收计划。这个阶段也可以做到与用户程序一起并发执行，但是因为只回收一部分Region，时间是用户可控制的，而且停顿用户线程将大幅提高收集效率。
 
+我们可以看下官方文档对G1的展望（这段英文描述比较简单，我就不翻译了）：
+>Future:
+G1 is planned as the long term replacement for the Concurrent Mark-Sweep Collector (CMS). Comparing G1 with CMS, there are differences that make G1 a better solution. One difference is that G1 is a compacting collector. G1 compacts sufficiently to completely avoid the use of fine-grained free lists for allocation, and instead relies on regions. This considerably simplifies parts of the collector, and mostly eliminates potential fragmentation issues. Also, G1 offers more predictable garbage collection pauses than the CMS collector, and allows users to specify desired pause targets.
+
 ## 2 内存分配策略
 对象的内存分配，往大方向上讲，就是在**堆**上分配（但也可能经过JIT编译后被拆散为标量类型并间接地**栈上分配**），**对象主要分配在新生代的Eden区上**，如果启动了本地线程分配缓冲，将按线程优先在TLAB上分配。少数情况下可能会直接分配在老年代中。
 
