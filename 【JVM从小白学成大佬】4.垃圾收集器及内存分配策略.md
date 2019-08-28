@@ -46,10 +46,10 @@ Parallel Scanvenge收集器在ParNew的基础上提供了一组参数，用于�
 但要注意停顿时间与吞吐量这两个目标是相悖的，降低停顿时间的同时也会引起吞吐的降低。因此需要将目标控制在一个合理的范围中。
 
 ### 1.4 Serial Old收集器
-Serial Old是Serial收集器的老年代版本，单线程收集器，使用标记-整理算法。这个收集器的主要意义也是在于给Client模式下的虚拟机使用。
+Serial Old是Serial收集器的老年代版本，单线程收集器，使用**标记-整理算法**。这个收集器的主要意义也是在于给Client模式下的虚拟机使用。
 
 ### 1.5 Parallel Old收集器
-Parallel Old是Parallel Scanvenge收集器的老年代版本，多线程收集器，使用标记-整理算法。
+Parallel Old是Parallel Scanvenge收集器的老年代版本，**多线程**收集器，使用**标记-整理算法**。
 
 ### 1.6 CMS收集器
 **CMS（Concurrent Mark Sweep）收集器是一种以获取最短回收停顿时间为目标的收集器**。
