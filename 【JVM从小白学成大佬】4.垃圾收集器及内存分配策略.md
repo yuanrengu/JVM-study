@@ -109,6 +109,11 @@ G1收集器将整个Java堆划分为多个大小相等的独立区域（Region�
 - 对象分配率或“晋升”的速度变化明显；
 - 期望消除耗时较长的GC或停顿（超过0.5——1秒）。
 
+>Applications running today with either the CMS or the ParallelOld garbage collector would benefit switching to G1 if the application has one or more of the following traits.
+- More than 50% of the Java heap is occupied with live data.
+- The rate of object allocation rate or promotion varies significantly.
+- Undesired long garbage collection or compaction pauses (longer than 0.5 to 1 second)
+
 #### G1收集的运作过程大致如下：
 
 - **初始标记（Initial Marking）**：仅仅只是标记一下GC Roots能直接关联到的对象，并且修改TAMS（Next Top at Mark Start）的值，让下一阶段用户程序并发运行时，能在正确可用的Region中创建新对象，**这阶段需要停顿线程，但耗时很短**。
