@@ -110,9 +110,9 @@ G1收集器将整个Java堆划分为多个大小相等的独立区域（Region�
 - 期望消除耗时较长的GC或停顿（超过0.5——1秒）。
 
 >Applications running today with either the CMS or the ParallelOld garbage collector would benefit switching to G1 if the application has one or more of the following traits.
-- More than 50% of the Java heap is occupied with live data.
-- The rate of object allocation rate or promotion varies significantly.
-- Undesired long garbage collection or compaction pauses (longer than 0.5 to 1 second)
+> - More than 50% of the Java heap is occupied with live data.
+> - The rate of object allocation rate or promotion varies significantly.
+> - Undesired long garbage collection or compaction pauses (longer than 0.5 to 1 second)
 
 #### G1收集的运作过程大致如下：
 
