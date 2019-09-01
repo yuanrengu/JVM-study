@@ -12,7 +12,7 @@
 
 ![对象创建过程.png](https://i.loli.net/2019/09/01/ECtgByTzwxZohFU.png)
 
-对象的创建基本流程：
+#### 对象创建的基本流程：
 
 1. 验证类已被解析。
 2. 获取instanceKlass，确保Klass已完全初始化。
